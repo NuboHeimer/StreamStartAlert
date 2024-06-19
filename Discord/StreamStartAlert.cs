@@ -3,11 +3,10 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      1.0.2
+///   Version:      2.0.0
 ///----------------------------------------------------------------------------
 using System;
 using System.IO;
-using Newtonsoft.Json;
 
 public class CPHInline
 {
@@ -18,46 +17,18 @@ public class CPHInline
         string pathToAlertText = args["pathToAlertText"].ToString();
         string twitchFollowerCount = args["followerCount"].ToString();
         string youTubeFollowerCount = args["youTubeFollowerCount"].ToString();
-        string alertData = File.ReadAllText(pathToAlertText);
-        var data = JsonConvert.DeserializeObject<AlertData>(alertData);
-        message = message + roleForPing + "\n\n" + data.Annonce + "\n\n**Игра —" + data.Game + "**\n\n_" + data.TranslationName + "_\n\n" + data.VKPlayLive.Link + "\n```\nЦели:\n  ● Средний онлайн — " + data.VKPlayLive.Goals.Online + "\n```\n\n" + data.Twitch.Link + "\n```\nЦели:\n  ● Фолловеры — " + data.Twitch.Goals.Followers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + data.YouTube.Link + "\n```\nЦели:\n  ● Фолловеры — " + data.YouTube.Goals.Followers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
-        message = message.Replace("followerCount", args["followerCount"].ToString());
-        CPH.LogInfo(message);
+        string annonceText = args["annonceText"].ToString();
+        string game = args["game"].ToString();
+        string translationTitle = args["translationTitle"].ToString();
+        string vkplLink = args["vkplLink"].ToString();
+        string vkplOnilne = args  ["vkplOnilne"].ToString();
+        string twitchLink = args["twitchLink"].ToString();
+        string twitchFollowers = args["twitchFollowers"].ToString();
+        string youTubeLink = args["youTubeLink"].ToString();
+        string youTubeFollowers = args["youTubeFollowers"].ToString();
+
+        message = message + roleForPing + "\n\n" + annonceText + "\n\n**Игра —" + game + "**\n\n_" + translationTitle + "_\n\n" + vkplLink + "\n```\nЦели:\n  ● Средний онлайн — " + vkplOnilne + "\n```\n\n" + twitchLink + "\n```\nЦели:\n  ● Фолловеры — " + twitchFollowers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + youTubeLink + "\n```\nЦели:\n  ● Фолловеры — " + youTubeFollowers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
         CPH.SetArgument("message", message);
         return true;
-    }
-
-    public class AlertData
-    {
-        public string Annonce { get; set; }
-        public string Game { get; set; }
-        public string TranslationName { get; set; }
-        public VKPlayLiveData VKPlayLive { get; set; }
-        public TwitchData Twitch { get; set; }
-        public YouTubeData YouTube { get; set; }
-    }
-
-    public class VKPlayLiveData
-    {
-        public string Link { get; set; }
-        public GoalsData Goals { get; set; }
-    }
-
-    public class TwitchData
-    {
-        public string Link { get; set; }
-        public GoalsData Goals { get; set; }
-    }
-
-    public class YouTubeData
-    {
-        public string Link { get; set; }
-        public GoalsData Goals { get; set; }
-    }
-
-    public class GoalsData
-    {
-        public string Online { get; set; }
-        public string Followers { get; set; }
     }
 }
