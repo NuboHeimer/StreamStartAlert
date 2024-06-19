@@ -33,7 +33,7 @@ public class CPHInline
         string chat = args["telegramChat"].ToString();
         string preview = @"E:\\6 Для стрима\\Оформление\\NuboHeimer\\Заставки\\Prewiev.png";
         
-        message = message + annonceText + "\n\n**Игра —" + game + "**\n\n_" + translationTitle + "_\n\n" + vkplLink + "\n```\nЦели:\n  ● Средний онлайн — " + vkplOnilne + "\n```\n\n" + twitchLink + "\n```\nЦели:\n  ● Фолловеры — " + twitchFollowers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + youTubeLink + "\n```\nЦели:\n  ● Фолловеры — " + youTubeFollowers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
+        message = message + annonceText + "\n\n**Игра — " + game + "**\n\n_" + translationTitle + "_\n\n" + vkplLink + "\n```\nЦели:\n  ● Средний онлайн — " + vkplOnilne + "\n```\n\n" + twitchLink + "\n```\nЦели:\n  ● Фолловеры — " + twitchFollowers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + youTubeLink + "\n```\nЦели:\n  ● Фолловеры — " + youTubeFollowers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
         
         this.perform(message, token, chat, preview, vkplLink, twitchLink, youTubeLink);
         return true;
