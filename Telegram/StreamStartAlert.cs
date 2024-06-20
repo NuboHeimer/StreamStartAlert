@@ -3,7 +3,7 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      0.1.0
+///   Version:      0.1.1
 ///----------------------------------------------------------------------------
 ///
 using System;
@@ -31,7 +31,7 @@ public class CPHInline
         string youTubeFollowers = args["youTubeFollowers"].ToString();
         string token = args["telegramToken"].ToString();
         string chat = args["telegramChat"].ToString();
-        string preview = @"E:\\6 Для стрима\\Оформление\\NuboHeimer\\Заставки\\Prewiev.png";
+        string preview = args["pathToPreview"].ToString() + "Preview.png";
         
         message = message + annonceText + "\n\n**Игра — " + game + "**\n\n_" + translationTitle + "_\n\n" + vkplLink + "\n```\nЦели:\n  ● Средний онлайн — " + vkplOnilne + "\n```\n\n" + twitchLink + "\n```\nЦели:\n  ● Фолловеры — " + twitchFollowers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + youTubeLink + "\n```\nЦели:\n  ● Фолловеры — " + youTubeFollowers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
         
