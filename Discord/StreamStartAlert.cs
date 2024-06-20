@@ -6,7 +6,6 @@
 ///   Version:      2.0.0
 ///----------------------------------------------------------------------------
 using System;
-using System.IO;
 
 public class CPHInline
 {
@@ -27,7 +26,7 @@ public class CPHInline
         string youTubeLink = args["youTubeLink"].ToString();
         string youTubeFollowers = args["youTubeFollowers"].ToString();
 
-        message = message + roleForPing + "\n\n" + annonceText + "\n\n**Игра — " + game + "**\n\n_" + translationTitle + "_\n\n" + vkplLink + "\n```\nЦели:\n  ● Средний онлайн — " + vkplOnilne + "\n```\n\n" + twitchLink + "\n```\nЦели:\n  ● Фолловеры — " + twitchFollowers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + youTubeLink + "\n```\nЦели:\n  ● Фолловеры — " + youTubeFollowers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
+        message = message + roleForPing + "\n\n" + annonceText + "\n\n**Игра —" + game + "**\n\n_" + translationTitle + "_\n\n" + vkplLink + "\n```\nЦели:\n  ● Средний онлайн — " + vkplOnilne + "\n```\n\n" + twitchLink + "\n```\nЦели:\n  ● Фолловеры — " + twitchFollowers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + youTubeLink + "\n```\nЦели:\n  ● Фолловеры — " + youTubeFollowers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
         CPH.SetArgument("message", message);
         return true;
     }
