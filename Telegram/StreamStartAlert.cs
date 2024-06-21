@@ -3,7 +3,7 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      0.1.1
+///   Version:      0.1.2
 ///----------------------------------------------------------------------------
 ///
 using System;
@@ -32,8 +32,9 @@ public class CPHInline
         string token = args["telegramToken"].ToString();
         string chat = args["telegramChat"].ToString();
         string preview = args["pathToPreviewFolder"].ToString() + "Preview.png";
+        string totalAverageVkPlayLiveViewers = args["totalAverageVkPlayLiveViewers"].ToString();
         
-        message = message + annonceText + "\n\n**Игра — " + game + "**\n\n_" + translationTitle + "_\n\n" + vkplLink + "\n```\nЦели:\n  ● Средний онлайн — " + vkplOnilne + "\n```\n\n" + twitchLink + "\n```\nЦели:\n  ● Фолловеры — " + twitchFollowers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + youTubeLink + "\n```\nЦели:\n  ● Фолловеры — " + youTubeFollowers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
+        message = message + annonceText + "\n\n**Игра — " + game + "**\n\n_" + translationTitle + "_\n\n" + vkplLink + "\n```\nЦели:\n  ● Средний онлайн — " + vkplOnilne.Replace("totalAverageVkPlayLiveViewers", totalAverageVkPlayLiveViewers) + "\n```\n\n" + twitchLink + "\n```\nЦели:\n  ● Фолловеры — " + twitchFollowers.Replace("twitchFollowerCount", twitchFollowerCount) + "\n```\n\n" + youTubeLink + "\n```\nЦели:\n  ● Фолловеры — " + youTubeFollowers.Replace("youTubeFollowerCount", youTubeFollowerCount) + "\n```\n\n";
         
         this.perform(message, token, chat, preview, vkplLink, twitchLink, youTubeLink);
         return true;
