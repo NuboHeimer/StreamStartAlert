@@ -6,7 +6,6 @@
 ///   Version:      2.0.0
 ///----------------------------------------------------------------------------
 using System;
-using System.IO;
 
 public class CPHInline
 {
